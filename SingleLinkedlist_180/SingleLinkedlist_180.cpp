@@ -52,5 +52,15 @@ bool searchNode(int nim, node* current, node* previous) {
 		current = current->next;
 	}
 
-	if
+	if (current == NULL) {
+		return false;
+	}
+	else if (current->noMhs == nim)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
