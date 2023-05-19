@@ -46,5 +46,11 @@ void addnode() {
 bool searchNode(int nim, node* current, node* previous) {
 	previous = START;
 	current = START;
-	while
+	while (current != NULL && nim > current->noMhs)
+	{
+		previous = current;
+		current = current->next;
+	}
+
+	if
 }
