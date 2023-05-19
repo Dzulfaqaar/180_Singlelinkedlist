@@ -35,7 +35,10 @@ void addnode() {
 				return;
 			}
 
-	
+			previous = current;
+			current = current->next;
 		}
+		nodebaru->next = current;
+		previous->next = nodebaru;
 	}
 }
