@@ -13,7 +13,7 @@ void addnode() {
 	int nim;
 	string nama;
 	node* nodebaru = new node();
-	cout << "Masukkan NIm: ";
+	cout << "Masukkan Nim: ";
 	cin >> nim;
 	cout << "Masukkan Nama: ";
 	cin >> nama;
@@ -21,26 +21,32 @@ void addnode() {
 	nodebaru->name = nama;
 
 	if (START == NULL || nim <= START->noMhs) {
-		if (START != NULL && nim == START->noMhs) {
+		if (START != NULL && nim == START->noMhs)
+		{
 			cout << "Nim sudah ada" << endl;
 			return;
 		}
-		node* current = START;
-		node* previous = START;
 
-		while ((current != NULL) && (nim >= current->noMhs))
-		{
-			if (nim == current->noMhs) {
-				cout << "Nim sudah ada" << endl;
-				return;
-			}
-
-			previous = current;
-			current = current->next;
-		}
-		nodebaru->next = current;
-		previous->next = nodebaru; 
+		nodebaru->next = START;
+		START = nodebaru;
+		return;
 	}
+
+	node* previous = START;
+	node* current = START;
+
+	while ((current != NULL) && (nim >= current->noMhs))
+	{
+		if (nim == current->noMhs)
+		{
+			cout << "Nim sudah ada" << endl;
+			return;
+		}
+		previous = current;
+		current = current->next;
+	}
+	nodebaru->next = current;
+	previous->next = nodebaru; 
 }
 
 bool searchNode(int nim, node* current, node* previous) {
@@ -164,4 +170,22 @@ int main() {
 				else
 					cout << "Data tidak ditemukan" << endl;
 				break;
-			
+			case 3:
+				traverse();
+				break;
+			case 4:
+				searchData();
+				break;
+			case 5:
+				break;
+			deafult:
+				cout << "Pilihan tidak ada" << endl;
+				break;
+			}
+		}
+		catch (exception e)
+		{
+			cout << "Terjadi Kesalahan" << endl;
+		}
+	} while (pilihan != 5);
+}
