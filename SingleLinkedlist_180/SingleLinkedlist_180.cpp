@@ -42,3 +42,9 @@ void addnode() {
 		previous->next = nodebaru; 
 	}
 }
+
+bool searchNode(int nim, node* current, node* previous) {
+	previous = START;
+	current = START;
+	while
+}
