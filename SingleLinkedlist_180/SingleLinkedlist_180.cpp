@@ -39,6 +39,6 @@ void addnode() {
 			current = current->next;
 		}
 		nodebaru->next = current;
-		previous->next = nodebaru;
+		previous->next = nodebaru; 
 	}
 }
