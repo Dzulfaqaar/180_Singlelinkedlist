@@ -75,3 +75,52 @@ bool deletenode(int nim) {
 		START = current->next;
 	return true;
 }
+bool listEmpty() {
+	if (START == NULL)
+		return true;
+	else
+		return false;
+}
+
+void traverse() {
+	if (listEmpty()) {
+		cout << "list kosong" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	else
+	{
+		node* currentnode = START;
+		while (currentnode != NULL)
+		{
+			cout << " NIM: " << currentnode->noMhs << ", Nama:" << currentnode->name << endl;
+			currentnode = currentnode->next;
+		}
+		cout << endl;
+	}
+}
+
+void searchData() {
+	if (listEmpty()) {
+		cout << "list kosong" << endl;
+		system("pause");
+		system("cls");
+		return;
+	}
+	else {
+		int nim;
+		cout << "Massukkan Nim: ";
+		cin >> nim;
+		node* currentnode = START;
+		while (currentnode != NULL) {
+			if (currentnode->noMhs == nim) {
+				cout << "NIM: " << currentnode->noMhs << ",Nama:" << currentnode->name << endl;
+				return;
+			}
+			currentnode = currentnode->next;
+		}
+		cout << "Data tidak ditemukan" << endl;
+	}
+}
+
